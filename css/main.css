@@ -256,20 +256,19 @@ header .search input,
 header .search .search-icon,
 header .search .autocompletes h3,
 header .search .autocompletes li {
-  transition:  .6s;
+  transition: .6s;
   transform: translate(100px, 0);
 }
-
 
 header.searching ul.menu > li {
   transform: scale(.7);
   opacity: 0;
 }
 
-header.searching .search-wrap {  
-  visibility: visible;
-  opacity: 1;
+header.searching .search-wrap {
   transition-delay: .2s;
+  opacity: 1;
+  visibility: visible;
 }
 
 header.searching .search input,
