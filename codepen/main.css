@@ -1,0 +1,9 @@
+section {
+  margin: 40px;
+  padding: 100px;
+  border: 4px solid;
+}
+h1 {
+  padding: 50;
+  background-color: orange;
+}
