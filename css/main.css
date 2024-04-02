@@ -197,6 +197,12 @@ a.link::after {
   line-height: 1.5;
 }
 
+.info a.link {
+  display: block;
+  margin-top: 44px;
+  font-size: 19.5px;
+}
+
 
 /* * Header */
 header {
@@ -256,7 +262,6 @@ header ul.menu > li.basket-starter  >a {
 header ul.menu > li > a:hover {
   opacity: 1;
 }
-
 
 /* * Header / Menu / Basket  */
 header .basket {
@@ -326,7 +331,6 @@ header .basket ul li a {
 header .basket ul li a:hover {
   text-decoration: underline;
 }
-
 
 /* * Header / Search */
 header .search-wrap {
@@ -577,7 +581,6 @@ nav .menu li.active:hover a {
   margin-top: 30px
 }
 
-
 /* * Power / Multiple Apps */
 .power {
   margin-top: 110px;
@@ -622,7 +625,6 @@ nav .menu li.active:hover a {
   transform: translate(483px, 653px);
 }
 
-
 /* * Power / Create */
 .power .create {
   margin-top: 55px;
@@ -642,6 +644,7 @@ nav .menu li.active:hover a {
   background-image: url("../images/power_create_caption.png");
   transform: translate(543px, 908px);
 }
+
 
 /* * Display */
 .display {
@@ -693,7 +696,6 @@ nav .menu li.active:hover a {
 .camera {
   margin-top: 303px;
 }
-
 
 /* * Camera / Stage */
 .camera .stage {
@@ -763,7 +765,6 @@ nav .menu li.active:hover a {
   transform: translate(-116px, 383px);
 }
 
-
 /* * Camera / Edit */
 .camera .edit .figures {
   height: 910px;
@@ -779,6 +780,49 @@ nav .menu li.active:hover a {
   background-image: url("../images/camera_edit_caption.png");
   transform: translate(27px, 905px);
 }
+
+
+/* * Wireless */
+.wireless {
+  margin-top: 202px;
+}
+
+/* * Wireless / FaceTime */
+.wireless .facetime h1 {
+  width: 730px;
+  height: 330px;
+  background-image: url("../images/wireless_headline.png");
+  transform: translate(104px, 0);
+}
+
+.wireless .facetime .figures {
+  height: 773px;
+}
+
+.wireless .facetime figure {
+  transform: translate(-68px, 0);
+}
+
+.wireless .facetime figcaption {
+  width: 139px;
+  height: 46px;
+  background-image: url("../images/wireless_facetime_caption.png");
+  transform: translate(843px, -49px);
+}
+
+/* * Wireless / Files */
+.wireless .files figure {
+  transform: translate(34px, -34px);
+}
+
+.wireless .files figcaption {
+  width: 127px;
+  height: 46px;
+  background-image: url("../images/wireless_files_caption.png");
+  transform: translate(96px, 639px);
+}
+
+
 
 @keyframes sprite-icon {
   /* 1~10 */
