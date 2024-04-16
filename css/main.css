@@ -1147,6 +1147,27 @@ nav .menu li.active:hover a {
 }
 
 
+/* * Accessory Shop */
+.accessory-shop {
+  background-color: var(--color-section);
+  text-align: center;
+}
+
+.accessory-shop .whitebox { 
+  padding-bottom: 0;
+}
+
+.accessory-shop .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accessory-shop img {
+
+}
+
+
 @keyframes sprite-icon {
   /* 1~10 */
   0.00% { background-position: 0 0; }
