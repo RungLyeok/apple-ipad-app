@@ -1,4 +1,5 @@
 import ipads from '../data/ipads.js'
+import navigations from '../data/navigations.js'
 
 
 // * 장바구니!
@@ -122,7 +123,7 @@ ipads.forEach(function (ipad) {
 
   itemEl.innerHTML = /* html */ ` 
     <div class="thumbnail">
-      <img src="${ipad.thumbnail}" alt"${ipad.name}" />
+      <img src="${ipad.thumbnail}" alt="${ipad.name}" />
     </div>
 
     <ul class="colors">
@@ -137,4 +138,34 @@ ipads.forEach(function (ipad) {
 
   itemsEl.append(itemEl)
 })
+
+
+// * 네비게이션 메뉴
+const navigationsEl = document.querySelector('footer .navigations')
+navigations.forEach(function (nav) {
+  const mapEl = document.createElement('div')
+  mapEl.classList.add('map')
+
+  let mapList = ''
+  nav.maps.forEach(function (map) {
+    mapList += /* html */`
+      <li>
+        <a href="${map.url}">${map.name}</a>
+      </li>
+      `
+  })
+  
+  mapEl.innerHTML = /* html */ `
+    <h3>
+      <span class="text">${nav.title}</span>
+    </h3>
+
+    <ul>
+      ${mapList}
+    </ul>
+  `
+
+  navigationsEl.append(mapEl)
+})
+
 
