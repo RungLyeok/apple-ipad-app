@@ -169,3 +169,8 @@ navigations.forEach(function (nav) {
 })
 
 
+// * 오늘 년도 랜더링
+const thisYearEl = document.querySelector('span.this-year')
+thisYearEl.textContent = new Date().getFullYear()
+
+
