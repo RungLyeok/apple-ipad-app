@@ -51,30 +51,51 @@ searchShadowEl.addEventListener('click', hideSearch)
 
 function showSearch() {
   headerEl.classList.add('searching')
-  document.documentElement.classList.add('fixed')
-  headerMenuEls.reverse().forEach(function (el, index) {
-    el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
+  stopScroll()
+  headerMenuEls.reverse().forEach((el, index) => {
+    el.style.transitionDelay = `${index * duration / headerMenuEls.length}s` // 순서 * 지연 시간 / 애니메이션할 요소 개수
   })
-  searchDelayEls.forEach(function (el, index) {
-    el.style.transitionDelay = index * .4 / searchDelayEls.length + 's'
+  // .reverse() 사용하지 않고 원래 순서대로 반복 처리.
+  searchDelayEls.forEach((el, index) => {
+    el.style.transitionDelay = `${index * duration / searchDelayEls.length}s`
   })
-  setTimeout(function () {
+  // 검색 인풋 요소가 나타난 후 동작!
+  setTimeout(() => {
     searchInputEl.focus()
-  }, 600)
+  }, 600);
 }
-
 function hideSearch() {
   headerEl.classList.remove('searching')
-  document.documentElement.classList.remove('fixed')
-  headerMenuEls.reverse().forEach(function (el, index) {
-    el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
+  playScroll()
+  headerMenuEls.reverse().forEach((el, index) => {
+    el.style.transitionDelay = `${index * duration / headerMenuEls.length}s`
   })
-  searchDelayEls.reverse().forEach(function (el, index) {
-    el.style.transitionDelay = index * .4 / searchDelayEls.length + 's'
+  searchDelayEls.reverse().forEach((el, index) => {
+    el.style.transitionDelay = `${index * duration / searchDelayEls.length}s`
   })
-  searchDelayEls.reverse()
-  searchInputEl.value = ''
+  searchDelayEls.reverse() // 나타날 때 원래의 순서대로 처리해야 하기 때문에 다시 뒤집어서 순서 돌려놓기!
+  searchInputEl.value = '' // 입력값 초기화
 }
+function playScroll() {
+  // documentElement is <html>
+  document.documentElement.classList.remove('fixed')
+}
+function stopScroll() {
+  document.documentElement.classList.add('fixed')
+}
+
+
+//* 헤더 메뉴 토글! [모바일]
+const menuStarterEl = document.querySelector('header .menu-starter')
+menuStarterEl.addEventListener('click', () => {
+  if (headerEl.classList.contains('menuing')) {
+    headerEl.classList.remove('menuing') 
+    playScroll()
+  } else {
+    headerEl.classList.add('menuing')
+    stopScroll()
+  }
+})
 
 
 // * 요소의 가시성 관찰
