@@ -98,6 +98,17 @@ menuStarterEl.addEventListener('click', () => {
 })
 
 
+// * 헤더 검색!
+const searchTextFieldEl = document.querySelector('header .textfield')
+const searchCancelEl = document.querySelector('header .search-cancel')
+searchTextFieldEl.addEventListener('click', function () {
+  headerEl.classList.add('searching--mobile')
+})
+searchCancelEl.addEventListener('click', function () {
+  headerEl.classList.remove('searching--mobile')
+})
+
+
 // * 요소의 가시성 관찰
 const io = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
