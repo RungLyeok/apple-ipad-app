@@ -46,7 +46,10 @@ const searchInputEl = searchWrapEl.querySelector('input')
 const searchDelayEls = [...searchWrapEl.querySelectorAll('li')]
 
 searchStarterEl.addEventListener('click', showSearch)
-searchCloserEl.addEventListener('click', hideSearch)
+searchCloserEl.addEventListener('click', function (event) {
+  event.stopPropagation()
+  hideSearch()
+})
 searchShadowEl.addEventListener('click', hideSearch)
 
 function showSearch() {
@@ -55,11 +58,11 @@ function showSearch() {
   headerMenuEls.reverse().forEach((el, index) => {
     el.style.transitionDelay = `${index * duration / headerMenuEls.length}s` // 순서 * 지연 시간 / 애니메이션할 요소 개수
   })
-  // .reverse() 사용하지 않고 원래 순서대로 반복 처리.
+  // * .reverse() 사용하지 않고 원래 순서대로 반복 처리.
   searchDelayEls.forEach((el, index) => {
     el.style.transitionDelay = `${index * duration / searchDelayEls.length}s`
   })
-  // 검색 인풋 요소가 나타난 후 동작!
+  // * 검색 인풋 요소가 나타난 후 동작!
   setTimeout(() => {
     searchInputEl.focus()
   }, 600);
@@ -100,12 +103,22 @@ menuStarterEl.addEventListener('click', () => {
 
 // * 헤더 검색!
 const searchTextFieldEl = document.querySelector('header .textfield')
-const searchCancelEl = document.querySelector('header .search-cancel')
+const searchCancelEl = document.querySelector('header .search-canceler')
 searchTextFieldEl.addEventListener('click', function () {
   headerEl.classList.add('searching--mobile')
 })
 searchCancelEl.addEventListener('click', function () {
   headerEl.classList.remove('searching--mobile')
+})
+
+
+// *
+window.addEventListener('resize', function () {
+  if (this.window.innerWidth <= 740) {
+    headerEl.classList.remove('searching')
+  } else {
+    headerEl.classList.remove('searching--mobile')
+  }
 })
 
 

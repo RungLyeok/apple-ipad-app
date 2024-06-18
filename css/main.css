@@ -572,6 +572,8 @@ header.searching .search .autocompletes li {
   header .search .textfield {
     border-radius: 10px;
     background-color: #1d1d1d;
+    width: 100%;
+    transition: .2s;
   }
 
   header .search .search-closer {
@@ -692,6 +694,10 @@ header.searching .search .autocompletes li {
 
   header.menuing.searching--mobile {
     transform: translate(0, -30px);
+  }
+
+  header.menuing.searching--mobile .search .textfield{
+    width: calc(100% - 55px);
   }
 
   header.menuing.searching--mobile .search .autocompletes {
