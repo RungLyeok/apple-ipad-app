@@ -152,6 +152,7 @@ function hideNavMenu() {
   navEl.classList.remove('menuing')
 }
 
+
 // * 요소의 가시성 관찰
 const io = new IntersectionObserver(function (entries) {
   entries.forEach(function (entry) {
